@@ -129,7 +129,7 @@ The four statuses above are the **canonical** contract — every harness relies 
 - `./spec-reviewer-prompt.md` - Dispatch spec compliance reviewer subagent
 - `./code-quality-reviewer-prompt.md` - Dispatch code quality reviewer subagent
 
-**On Claude Code**, you may instead dispatch the named agents `superpowers:spec-reviewer` and `superpowers:code-quality-reviewer` (defined in this plugin's `agents/`), passing the same per-task payload (task text, claims, `BASE_SHA`/`HEAD_SHA`). They carry the identical review criteria. On other harnesses, use the prompt templates above — they remain the source of truth.
+**On Claude Code**, you may instead dispatch the named agents `superpowers:spec-reviewer` and `superpowers:code-quality-reviewer` (defined in this plugin's `agents/`), passing the same per-task payload — spec-reviewer takes the task text and the implementer's claims; code-quality-reviewer additionally takes `BASE_SHA`/`HEAD_SHA`. They carry the identical review criteria. On other harnesses, use the prompt templates above — they remain the source of truth.
 
 ## Example Workflow
 
