@@ -54,6 +54,8 @@ The user has asked for an isolated workspace (Step 0 consent). Do you already ha
 
 Native tools handle directory placement, branch creation, and cleanup automatically. Using `git worktree add` when you have a native tool creates phantom state your harness can't see or manage.
 
+**Base-ref caveat (Claude Code `EnterWorktree`):** the new worktree's base is governed by the `worktree.baseRef` setting — `fresh` (default) branches from `origin/<default-branch>`, `head` branches from your current local HEAD. So by default a native worktree does **not** carry your uncommitted/local-only work. If you intended to build on local commits, request `head` base or use the Step 1b git fallback (which branches from current HEAD via `-b`).
+
 Only proceed to Step 1b if you have no native worktree tool available.
 
 ### 1b. Git Worktree Fallback
