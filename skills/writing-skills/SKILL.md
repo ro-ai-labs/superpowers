@@ -102,6 +102,22 @@ skills/
   - **NEVER summarize the skill's process or workflow** (see CSO section for why)
   - Keep under 500 characters if possible
 
+**Optional frontmatter fields.** `name` + `description` are all you need and the most portable. These additional fields unlock behavior; the **Std** column marks open-standard (portable, per agentskills.io/specification) vs **CC** (Claude Code extension — ignored on other harnesses, so a skill must not *depend* on them for correctness):
+
+| Field | Effect | Std |
+|---|---|---|
+| `license`, `compatibility`, `metadata` | SPDX license / declared compatibility / arbitrary key-values | Std |
+| `allowed-tools` | Pre-approves the listed tools while the skill is active (fewer prompts). NOT a sandbox — does not restrict other tools | Std (experimental) |
+| `disallowed-tools` | Blocks the listed tools while the skill is active (this is the real restrictor) | CC |
+| `disable-model-invocation` | Skill runs only when a human invokes it; the model can't auto-trigger it. Use for side-effecting/destructive workflows | CC |
+| `user-invocable` | Whether a user can run it as a `/command` (skills are user-invocable by default) | CC |
+| `argument-hint`, `arguments` | Slash-command argument hinting and `$ARGUMENTS`/`$1` substitution | CC |
+| `context: fork` | Run the skill in a forked context | CC |
+| `agent`, `model`, `effort` | Bind to a named agent / model hint / effort hint | CC |
+| `paths`, `hooks`, `when_to_use`, `shell` | Path scoping / skill-scoped hooks / alt trigger field / shell selection | CC |
+
+Treat CC fields as enhancements layered on a skill that already works with just `name` + `description`.
+
 ```markdown
 ---
 name: Skill-Name-With-Hyphens
