@@ -115,3 +115,5 @@ The skill itself tells you which.
 ## User Instructions
 
 Instructions say WHAT, not HOW. "Add X" or "Fix Y" doesn't mean skip workflows.
+
+<!-- superpowers-mihai-fork: v5.1.0-mihai.1 -->
