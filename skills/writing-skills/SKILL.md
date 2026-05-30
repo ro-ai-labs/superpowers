@@ -102,9 +102,9 @@ skills/
   - **NEVER summarize the skill's process or workflow** (see CSO section for why)
   - Keep under 500 characters if possible
 
-**Optional frontmatter fields.** `name` + `description` are all you need and the most portable. These additional fields unlock behavior; the **Std** column marks open-standard (portable, per agentskills.io/specification) vs **CC** (Claude Code extension — ignored on other harnesses, so a skill must not *depend* on them for correctness):
+**Optional frontmatter fields.** `name` + `description` are all you need and the most portable. These additional fields unlock behavior; the **Portability** column marks open-standard (`Std`, portable per agentskills.io/specification) vs Claude Code extensions (`CC`, ignored on other harnesses, so a skill must not *depend* on them for correctness). `Std (experimental)` is a standard field still being stabilized:
 
-| Field | Effect | Std |
+| Field | Effect | Portability |
 |---|---|---|
 | `license`, `compatibility`, `metadata` | SPDX license / declared compatibility / arbitrary key-values | Std |
 | `allowed-tools` | Pre-approves the listed tools while the skill is active (fewer prompts). NOT a sandbox — does not restrict other tools | Std (experimental) |

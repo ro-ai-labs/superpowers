@@ -73,7 +73,7 @@ Task("Fix tool-approval-race-conditions.test.ts failures")
 // All three run concurrently
 ```
 
-**If the parallel agents will EDIT overlapping files** (not just read), give each its own isolation so they can't collide — e.g. dispatch with `isolation:"worktree"` where your harness supports it, then review/merge each worktree. Note the base-ref caveat from `superpowers:using-git-worktrees` (a fresh worktree branches from the default branch, not your current HEAD), so this fits independent fixes on a clean base — not work that stacks on uncommitted changes. For agents editing disjoint files, the shared workspace is fine and simpler.
+**If the parallel agents will EDIT overlapping files** (not just read), give each its own isolation so they can't collide — e.g. per-agent worktrees where your harness supports it (in Claude Code, the Agent tool's `isolation:"worktree"`), then review/merge each worktree. Note the base-ref caveat from `superpowers:using-git-worktrees` (a fresh worktree branches from the default branch, not your current HEAD), so this fits independent fixes on a clean base — not work that stacks on uncommitted changes. For agents editing disjoint files, the shared workspace is fine and simpler.
 
 ### 4. Review and Integrate
 
