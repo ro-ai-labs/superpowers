@@ -5,3 +5,7 @@
 node_modules/
 inspo
 triage/
+
+# Runtime PID lockfiles created when the plugin is live (must never be committed)
+.in_use/
+*.in_use
