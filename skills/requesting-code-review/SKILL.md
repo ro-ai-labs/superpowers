@@ -100,4 +100,7 @@ You: [Fix progress indicators]
 - Show code/tests that prove it works
 - Request clarification
 
+
+(On Claude Code you may dispatch the named `superpowers:code-reviewer` agent instead of pasting the template; it carries the same instructions. On other harnesses, the template below remains the source of truth.)
+
 See template at: requesting-code-review/code-reviewer.md
