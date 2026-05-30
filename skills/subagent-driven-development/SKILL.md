@@ -119,6 +119,10 @@ Implementer subagents report one of four statuses. Handle each appropriately:
 
 **Never** ignore an escalation or force the same model to retry without changes. If the implementer said it's stuck, something needs to change.
 
+### Optional: structured status (Claude Code)
+
+The four statuses above are the **canonical** contract — every harness relies on the implementer writing `**Status:** ...` in prose, so keep requiring it. On Claude Code you *may* additionally pass a JSON `schema` on the implementer/reviewer dispatch to get a validated field for the control-flow switch, e.g. implementer `{ status: enum[DONE,DONE_WITH_CONCERNS,BLOCKED,NEEDS_CONTEXT], concerns: string }`, reviewer `{ verdict: enum[approved,issues_found], issues: [...] }`. This is additive: the prose status remains the source of truth and the fallback on harnesses without structured returns. Do not remove the prose `**Status:**` requirement.
+
 ## Prompt Templates
 
 - `./implementer-prompt.md` - Dispatch implementer subagent
